@@ -71,6 +71,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_migrations
+  activerecord
   pg
   pry
   rspec
