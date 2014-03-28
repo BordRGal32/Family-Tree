@@ -31,7 +31,7 @@ class Person < ActiveRecord::Base
       false
     else
       sibling = Person.where(:parent_id => self.parent_id)
-      sibling.delete(self)
+      sibling = sibling - [self]
       sibling
     end
   end
@@ -43,6 +43,8 @@ class Person < ActiveRecord::Base
     elsif Parent.where(:parent_two_id => self.id)
       childs_parent = Parent.where(:parent_two_id => self.id)
       children = Person.where(:parent_id => childs_parent.first.id)
+    else
+      false
     end
   end
 
