@@ -1,4 +1,9 @@
 class Person < ActiveRecord::Base
+  belongs_to :parent
+
+  has_one :parent_one
+  has_one :parent_two
+
   validates :name, :presence => true
 
   after_save :make_marriage_reciprocal

@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Person do
+  it { should belong_to :parent }
+  it { should have_one :parent_one }
+  it { should have_one :parent_two }
+
   it { should validate_presence_of :name }
 
   context '#spouse' do
